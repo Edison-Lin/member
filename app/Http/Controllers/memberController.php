@@ -77,6 +77,7 @@ class memberController extends Controller
      */
     public function destroy(member $member)
     {
-        //
+        $member->delete();
+        return redirect()->route('member.index')->with('success','會員資料已刪除成功!!!');
     }
 }
