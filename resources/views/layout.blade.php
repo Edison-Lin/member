@@ -130,3 +130,5 @@
     <script src="/assets/js/lib/flot-chart/flot-chart-init.js"></script>
     <!-- // flot-chart js -->
     <script src="/assets/js/scripts.js"></script><!-- scripit init-->
+</body>
+</html>
