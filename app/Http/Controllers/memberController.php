@@ -10,9 +10,18 @@ class memberController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $member=member::paginate(5);
+        if(isset($request->Search)){
+            $Search=$request->Search;
+            //搜尋姓名欄mname
+            // $member=member::where('mname','like','%'.$Search.'%')->paginate(5)->withQueryString();
+            //搜尋(姓名欄mname與編號欄mid)
+            $member=member::where('mname','like','%'.$Search.'%')->orWhere('mid', 'like', '%' . $Search . '%')->paginate(5)->withQueryString();
+        }else{
+            $Search="";
+            $member=member::paginate(5);
+        }
         return view('member.member',compact('member'));
     }
 
@@ -75,7 +84,6 @@ class memberController extends Controller
             'passwd'=>'required',
         ]);
         $member->update($request->all());
-        // return redirect()->route('member.edit',$member->mid)->with('success','會員資料已修改成功!!!');
         return redirect()->route('member.index')->with('success','會員資料已修改成功!!!');
     }
 
