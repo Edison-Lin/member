@@ -14,7 +14,7 @@
                             
                             <div class="card-body">
                                 <div class="horizontal-form">
-                                    <form  class="form-horizontal" method="post" action="{{route('member.update',$member->mid)}}">
+                                    <form class="form-horizontal" method="post" action="{{route('member.update',$member->mid)}}">
                                       @csrf 
                                       @method('PUT') 
                                       <div class="form-group">
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">會員名稱：</label>
                                             <div class="col-sm-10">
-                                                <input name="name" value="{{$member->name}}" type="text" class="form-control" placeholder="會員名稱">
+                                                <input name="mname" value="{{$member->mname}}" type="text" class="form-control" placeholder="會員名稱">
                                             </div>
                                         </div>
                                         <div class="form-group">

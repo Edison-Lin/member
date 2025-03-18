@@ -61,7 +61,7 @@ class memberController extends Controller
      */
     public function edit(member $member)
     {
-        //
+        return view('member.memberEdit',compact('member'));
     }
 
     /**
@@ -69,7 +69,14 @@ class memberController extends Controller
      */
     public function update(Request $request, member $member)
     {
-        //
+        $request->validate([
+            'mid'=>'required',
+            'mname'=>'required',
+            'passwd'=>'required',
+        ]);
+        $member->update($request->all());
+        // return redirect()->route('member.edit',$member->mid)->with('success','會員資料已修改成功!!!');
+        return redirect()->route('member.index')->with('success','會員資料已修改成功!!!');
     }
 
     /**

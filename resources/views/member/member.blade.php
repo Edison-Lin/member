@@ -45,7 +45,7 @@
                                                 <td>{{$data->passwd}}</td>
                                                 
                                                <td>
-                                                <a href="#" >
+                                                <a href="{{route('member.edit',$data->mid)}}">
                                                     <button type="button" class="btn btn btn-info btn btn-flat btn-addon btn-sm m-b-5 m-l-5"><i class="ti-pencil-alt"></i>
                                                         修改
                                                     </button>
